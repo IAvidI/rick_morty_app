@@ -68,7 +68,7 @@ class PersonListTile extends StatelessWidget {
                     child: Text(
                       '${person.species ?? S.of(context).noData}, ${person.gender ?? S.of(context).noData}',
                       style: const TextStyle(
-                        color: AppColors.neutral1,
+                        color: AppColors.neutral2,
                       ),
                     ),
                   ),

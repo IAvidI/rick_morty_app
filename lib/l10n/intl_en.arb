@@ -13,5 +13,16 @@
 	"signIn": "Sign in",
 	"language": "Language",
 	"english": "English",
-	"russian": "Russian"
+	"russian": "Russian",
+
+	"@personsTotal": {
+		"placeholders": {
+			"total": {}
+		}
+	},
+	"alive": "Alive",
+	"dead": "Dead",
+	"findPerson": "Find a person",
+	"noData": "No data",
+	"personsTotal": "Total persons: {total}"
 }

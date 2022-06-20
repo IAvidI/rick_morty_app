@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+// import 'package:rick_morty_app/person_list_tile.dart';
+// import 'login_screen.dart';
+import 'screen_persons_list.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: const Locale('ru', 'RU'),
       supportedLocales: S.delegate.supportedLocales,
-      home: const LoginScreen(),
+      home: const PersonsList(),
     );
   }
 }

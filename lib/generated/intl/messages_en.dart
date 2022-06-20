@@ -21,5 +21,26 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "auth": MessageLookupByLibrary.simpleMessage("Authorization"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
+        "counterValue": MessageLookupByLibrary.simpleMessage("Counter value"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
+        "inputErrorCheckLogin":
+            MessageLookupByLibrary.simpleMessage("Check login"),
+        "inputErrorCheckPassword":
+            MessageLookupByLibrary.simpleMessage("Check password"),
+        "inputErrorLoginIsShort": MessageLookupByLibrary.simpleMessage(
+            "Login must contain more than 3 symbols"),
+        "inputErrorPasswordIsShort": MessageLookupByLibrary.simpleMessage(
+            "Password must contain more than 8 symbols"),
+        "inputLoginAndPassword":
+            MessageLookupByLibrary.simpleMessage("Input login and password"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "russian": MessageLookupByLibrary.simpleMessage("Russian"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage("Try again")
+      };
 }

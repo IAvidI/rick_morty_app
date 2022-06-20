@@ -1,1 +1,17 @@
-{}
+{
+	"counterValue": "Counter value",
+	"auth": "Authorization",
+	"inputLoginAndPassword": "Input login and password",
+	"login": "Login",
+	"password": "Password",
+	"inputErrorCheckLogin": "Check login",
+	"inputErrorLoginIsShort": "Login must contain more than 3 symbols",
+	"inputErrorCheckPassword": "Check password",
+	"inputErrorPasswordIsShort": "Password must contain more than 8 symbols",
+	"tryAgain": "Try again",
+	"close": "Close",
+	"signIn": "Sign in",
+	"language": "Language",
+	"english": "English",
+	"russian": "Russian"
+}

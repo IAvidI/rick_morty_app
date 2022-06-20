@@ -49,6 +49,156 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Counter value`
+  String get counterValue {
+    return Intl.message(
+      'Counter value',
+      name: 'counterValue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authorization`
+  String get auth {
+    return Intl.message(
+      'Authorization',
+      name: 'auth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input login and password`
+  String get inputLoginAndPassword {
+    return Intl.message(
+      'Input login and password',
+      name: 'inputLoginAndPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check login`
+  String get inputErrorCheckLogin {
+    return Intl.message(
+      'Check login',
+      name: 'inputErrorCheckLogin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login must contain more than 3 symbols`
+  String get inputErrorLoginIsShort {
+    return Intl.message(
+      'Login must contain more than 3 symbols',
+      name: 'inputErrorLoginIsShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check password`
+  String get inputErrorCheckPassword {
+    return Intl.message(
+      'Check password',
+      name: 'inputErrorCheckPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain more than 8 symbols`
+  String get inputErrorPasswordIsShort {
+    return Intl.message(
+      'Password must contain more than 8 symbols',
+      name: 'inputErrorPasswordIsShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get tryAgain {
+    return Intl.message(
+      'Try again',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get signIn {
+    return Intl.message(
+      'Sign in',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Russian`
+  String get russian {
+    return Intl.message(
+      'Russian',
+      name: 'russian',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +207,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ru', countryCode: 'RU'),
     ];
   }
 

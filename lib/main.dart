@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:rick_morty_app/splash_screen.dart';
 // import 'package:rick_morty_app/person_list_tile.dart';
 // import 'login_screen.dart';
-import 'screen_persons_list.dart';
+import 'constants/app_colors.dart';
+// import 'screen_persons_list.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorSchemeSeed: AppColors.primary,
       ),
       localizationsDelegates: const [
         S.delegate,
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: const Locale('ru', 'RU'),
       supportedLocales: S.delegate.supportedLocales,
-      home: const PersonsList(),
+      home: const SplashScreen(),
     );
   }
 }

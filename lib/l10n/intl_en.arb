@@ -24,5 +24,27 @@
 	"dead": "Dead",
 	"findPerson": "Find a person",
 	"noData": "No data",
-	"personsTotal": "Total persons: {total}"
+	"personsTotal": "Total persons: {total}",
+
+	"@inputErrorLoginIsShorterThan": {
+		"placeholders": {
+			"min": {}
+		}
+	},
+	"@inputErrorPasswordIsShorterThan": {
+		"placeholders": {
+			"min": {}
+		}
+	},
+
+	"inputErrorLoginIsShorterThan": "Login must contain more than {min} symbols",
+
+	"inputErrorPasswordIsShorterThan": "Password must contain more than {min} symbols",
+	"dontHaveAnAccountHint": "Don't have an account yet",
+	"create": "Create",
+	"error": "Error",
+	"wrongLoginOrPassword": "Wrong login or password",
+	"ok": "Ok",
+	"settings": "Settings",
+	"persons": "Persons"
 }

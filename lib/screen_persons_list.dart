@@ -7,6 +7,7 @@ import 'package:rick_morty_app/generated/l10n.dart';
 import '/person_grid_tile.dart';
 import '/search_field.dart';
 import '/person_list_tile.dart';
+import 'widgets/app_nav_bar.dart';
 
 // part 'widgets/_list_view.dart';
 class _ListView extends StatelessWidget {
@@ -81,6 +82,7 @@ class _PersonsListState extends State<PersonsList> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: const AppNavBar(current: 0),
         body: Column(
           children: [
             const SearchField(),

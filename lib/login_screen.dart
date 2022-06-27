@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rick_morty_app/screen_persons_list.dart';
 
-import 'home_screen.dart';
+import 'settings_screen.dart';
 
 import '../generated/l10n.dart';
 
@@ -139,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
+                              builder: (context) => const PersonsList(),
                             ),
                           );
                         } else {

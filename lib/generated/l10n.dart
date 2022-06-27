@@ -249,6 +249,96 @@ class S {
       args: [total],
     );
   }
+
+  /// `Login must contain more than {min} symbols`
+  String inputErrorLoginIsShorterThan(Object min) {
+    return Intl.message(
+      'Login must contain more than $min symbols',
+      name: 'inputErrorLoginIsShorterThan',
+      desc: '',
+      args: [min],
+    );
+  }
+
+  /// `Password must contain more than {min} symbols`
+  String inputErrorPasswordIsShorterThan(Object min) {
+    return Intl.message(
+      'Password must contain more than $min symbols',
+      name: 'inputErrorPasswordIsShorterThan',
+      desc: '',
+      args: [min],
+    );
+  }
+
+  /// `Don't have an account yet`
+  String get dontHaveAnAccountHint {
+    return Intl.message(
+      'Don\'t have an account yet',
+      name: 'dontHaveAnAccountHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create`
+  String get create {
+    return Intl.message(
+      'Create',
+      name: 'create',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong login or password`
+  String get wrongLoginOrPassword {
+    return Intl.message(
+      'Wrong login or password',
+      name: 'wrongLoginOrPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message(
+      'Ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Persons`
+  String get persons {
+    return Intl.message(
+      'Persons',
+      name: 'persons',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

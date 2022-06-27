@@ -20,7 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru_RU';
 
-  static String m0(total) => "Всего персонажей: ${total}";
+  static String m0(min) => "Логин должен содержать не менее ${min} символов";
+
+  static String m1(min) => "Пароль должен содержать не менее ${min} символов";
+
+  static String m2(total) => "Всего персонажей: ${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -29,8 +33,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "close": MessageLookupByLibrary.simpleMessage("Закрыть"),
         "counterValue":
             MessageLookupByLibrary.simpleMessage("Значение счетчика"),
+        "create": MessageLookupByLibrary.simpleMessage("Создать"),
         "dead": MessageLookupByLibrary.simpleMessage("Мертвый"),
+        "dontHaveAnAccountHint":
+            MessageLookupByLibrary.simpleMessage("Ещё нет аккаунта"),
         "english": MessageLookupByLibrary.simpleMessage("Английский"),
+        "error": MessageLookupByLibrary.simpleMessage("Ошибка"),
         "findPerson": MessageLookupByLibrary.simpleMessage("Найти персонажа"),
         "inputErrorCheckLogin":
             MessageLookupByLibrary.simpleMessage("Проверьте логин"),
@@ -38,17 +46,24 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Проверьте пароль"),
         "inputErrorLoginIsShort": MessageLookupByLibrary.simpleMessage(
             "Логин должен содержать не менее 3 символов"),
+        "inputErrorLoginIsShorterThan": m0,
         "inputErrorPasswordIsShort": MessageLookupByLibrary.simpleMessage(
             "Пароль должен содержать не менее 8 символов"),
+        "inputErrorPasswordIsShorterThan": m1,
         "inputLoginAndPassword":
             MessageLookupByLibrary.simpleMessage("Введите логин и пароль"),
         "language": MessageLookupByLibrary.simpleMessage("Язык"),
         "login": MessageLookupByLibrary.simpleMessage("Логин"),
         "noData": MessageLookupByLibrary.simpleMessage("Нет данных"),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
-        "personsTotal": m0,
+        "persons": MessageLookupByLibrary.simpleMessage("Персонажи"),
+        "personsTotal": m2,
         "russian": MessageLookupByLibrary.simpleMessage("Русский"),
+        "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "signIn": MessageLookupByLibrary.simpleMessage("Вход"),
-        "tryAgain": MessageLookupByLibrary.simpleMessage("Попробуйте снова")
+        "tryAgain": MessageLookupByLibrary.simpleMessage("Попробуйте снова"),
+        "wrongLoginOrPassword": MessageLookupByLibrary.simpleMessage(
+            "Введен неверный логин или пароль")
       };
 }

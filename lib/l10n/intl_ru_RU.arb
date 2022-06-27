@@ -24,5 +24,27 @@
 	"dead": "Мертвый",
 	"findPerson": "Найти персонажа",
 	"noData": "Нет данных",
-	"personsTotal": "Всего персонажей: {total}"
+	"personsTotal": "Всего персонажей: {total}",
+	
+	"@inputErrorLoginIsShorterThan": {
+		"placeholders": {
+			"min": {}
+		}
+	},
+	"@inputErrorPasswordIsShorterThan": {
+		"placeholders": {
+			"min": {}
+		}
+	},
+	
+	"inputErrorLoginIsShorterThan": "Логин должен содержать не менее {min} символов",
+	"inputErrorPasswordIsShorterThan": "Пароль должен содержать не менее {min} символов",
+	
+	"dontHaveAnAccountHint": "Ещё нет аккаунта",
+	"create": "Создать",
+	"error": "Ошибка",
+	"wrongLoginOrPassword": "Введен неверный логин или пароль",
+	"ok": "Ok",
+	"settings": "Настройки",
+	"persons": "Персонажи"
 }

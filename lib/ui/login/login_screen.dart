@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rick_morty_app/screen_persons_list.dart';
+import 'package:rick_morty_app/ui/persons_list/screen_persons_list.dart';
 
-import 'settings_screen.dart';
+import '../settings_screen.dart';
 
-import '../generated/l10n.dart';
+import '../../../generated/l10n.dart';
 
 import 'package:intl/intl.dart';
 

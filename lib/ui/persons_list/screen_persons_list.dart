@@ -4,10 +4,10 @@ import 'package:rick_morty_app/constants/app_styles.dart';
 import 'package:rick_morty_app/dto/person.dart';
 import 'package:rick_morty_app/generated/l10n.dart';
 
-import '/person_grid_tile.dart';
-import '/search_field.dart';
-import '/person_list_tile.dart';
-import 'widgets/app_nav_bar.dart';
+import 'widgets/person_grid_tile.dart';
+import 'widgets/person_list_tile.dart';
+import 'widgets/search_field.dart';
+import '../../widgets/app_nav_bar.dart';
 
 // part 'widgets/_list_view.dart';
 class _ListView extends StatelessWidget {

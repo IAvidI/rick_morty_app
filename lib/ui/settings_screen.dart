@@ -3,8 +3,9 @@ import 'package:rick_morty_app/constants/app_colors.dart';
 import 'package:rick_morty_app/constants/app_styles.dart';
 
 import 'package:intl/intl.dart';
-import '../generated/l10n.dart';
-import 'widgets/app_nav_bar.dart';
+import 'package:rick_morty_app/repo/repo_settings.dart';
+import '../../generated/l10n.dart';
+import '../widgets/app_nav_bar.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -62,6 +63,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     );
                     setState(() {});
                   }
+                  RepoSettings().saveLocale(value!);
                 },
               )
             ],

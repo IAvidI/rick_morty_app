@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:rick_morty_app/constants/app_assets.dart';
 import 'package:rick_morty_app/constants/app_colors.dart';
-import 'package:rick_morty_app/screen_persons_list.dart';
+import 'package:rick_morty_app/ui/persons_list/screen_persons_list.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../generated/l10n.dart';
-import '../settings_screen.dart';
+import '../ui/settings_screen.dart';
 
 class AppNavBar extends StatelessWidget {
   const AppNavBar({

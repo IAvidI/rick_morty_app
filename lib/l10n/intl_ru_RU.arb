@@ -46,5 +46,11 @@
 	"wrongLoginOrPassword": "Введен неверный логин или пароль",
 	"ok": "Ok",
 	"settings": "Настройки",
-	"persons": "Персонажи"
+	"persons": "Персонажи",
+
+	"man": "Человек",
+	"male": "Мужской",
+	"female": "Женский",
+	"personsListIsEmpty": "Персонажей не найдено",
+	"somethingWentWrong": "Что-то пошло не так :-("
 }

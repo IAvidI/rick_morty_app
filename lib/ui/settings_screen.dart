@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rick_morty_app/constants/app_colors.dart';
 import 'package:rick_morty_app/constants/app_styles.dart';
 
@@ -52,6 +53,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
                 onChanged: (value) async {
+                  if (value == null) return;
                   if (value == 'ru_RU') {
                     await S.load(
                       const Locale('ru', 'RU'),
@@ -63,7 +65,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     );
                     setState(() {});
                   }
-                  RepoSettings().saveLocale(value!);
+                  final repoSettings =
+                      Provider.of<RepoSettings>(context, listen: false);
+                  repoSettings.saveLocale(value);
                 },
               )
             ],

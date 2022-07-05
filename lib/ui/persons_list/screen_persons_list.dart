@@ -3,6 +3,9 @@ import 'package:rick_morty_app/constants/app_colors.dart';
 import 'package:rick_morty_app/constants/app_styles.dart';
 import 'package:rick_morty_app/dto/person.dart';
 import 'package:rick_morty_app/generated/l10n.dart';
+import 'package:provider/provider.dart';
+import 'package:rick_morty_app/repo/repo_persons.dart';
+import 'package:rick_morty_app/ui/persons_list/widgets/vmodel.dart';
 
 import 'widgets/person_grid_tile.dart';
 import 'widgets/person_list_tile.dart';
@@ -69,94 +72,199 @@ class _GridView extends StatelessWidget {
   }
 }
 
-class PersonsList extends StatefulWidget {
-  const PersonsList({Key? key}) : super(key: key);
+class PersonsListScreen extends StatelessWidget {
+  const PersonsListScreen({Key? key}) : super(key: key);
 
-  @override
-  State<PersonsList> createState() => _PersonsListState();
-}
-
-class _PersonsListState extends State<PersonsList> {
-  var isListView = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: const AppNavBar(current: 0),
-        body: Column(
-          children: [
-            const SearchField(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      S
-                          .of(context)
-                          .personsTotal(_personsList.length)
-                          .toUpperCase(),
-                      style: AppStyles.s10w500.copyWith(
-                        letterSpacing: 1.5,
-                        color: AppColors.neutral2,
+        body: ChangeNotifierProvider(
+          create: (context) => PersonsListVModel(
+            repo: Provider.of<RepoPersons>(context, listen: false),
+          ),
+          builder: (context, _) {
+            final personsTotal =
+                context.watch<PersonsListVModel>().filteredList.length;
+            return Column(
+              children: [
+                SearchField(
+                  onChanged: (value) {
+                    Provider.of<PersonsListVModel>(context, listen: false)
+                        .filter(
+                      value.toLowerCase(),
+                    );
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          S
+                              .of(context)
+                              .personsTotal(personsTotal)
+                              .toUpperCase(),
+                          style: AppStyles.s10w500.copyWith(
+                            letterSpacing: 1.5,
+                            color: AppColors.neutral2,
+                          ),
+                        ),
                       ),
-                    ),
+                      IconButton(
+                        icon: const Icon(Icons.grid_view),
+                        iconSize: 28.0,
+                        color: AppColors.neutral2,
+                        onPressed: () {
+                          Provider.of<PersonsListVModel>(
+                            context,
+                            listen: false,
+                          ).switchView();
+                        },
+                      ),
+                    ],
                   ),
-                  IconButton(
-                    icon: Icon(isListView ? Icons.list : Icons.grid_view),
-                    iconSize: 28.0,
-                    color: AppColors.neutral2,
-                    onPressed: () {
-                      setState(() {
-                        isListView = !isListView;
-                      });
+                ),
+                Expanded(
+                  child: Consumer<PersonsListVModel>(
+                    builder: (context, vmodel, _) {
+                      if (vmodel.isLoading) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            CircularProgressIndicator(),
+                          ],
+                        );
+                      }
+                      if (vmodel.errorMessage != null) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Text(vmodel.errorMessage!),
+                            ),
+                          ],
+                        );
+                      }
+                      if (vmodel.filteredList.isEmpty) {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Text(S.of(context).personsListIsEmpty),
+                            ),
+                          ],
+                        );
+                      }
+                      return vmodel.isListView
+                          ? _ListView(
+                              personsList: vmodel.filteredList,
+                            )
+                          : _GridView(
+                              personsList: vmodel.filteredList,
+                            );
                     },
                   ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: isListView
-                  ? _ListView(personsList: _personsList)
-                  : _GridView(personsList: _personsList),
-            ),
-          ],
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
   }
 }
 
-final _list = [
-  const Person(
-    name: 'Рик Санчез',
-    species: 'Человек',
-    status: 'Alive',
-    gender: 'Мужской',
-  ),
-  const Person(
-    name: 'Алан Райс',
-    species: 'Человек',
-    status: 'Dead',
-    gender: 'Мужской',
-  ),
-  const Person(
-    name: 'Саммер Смит',
-    species: 'Человек',
-    status: 'Alive',
-    gender: 'Женский',
-  ),
-  const Person(
-    name: 'Морти Смит',
-    species: 'Человек',
-    status: 'Alive',
-    gender: 'Мужской',
-  ),
-];
+// class PersonsList extends StatefulWidget {
+//   const PersonsList({Key? key}) : super(key: key);
 
-final _personsList = [
-  ..._list,
-  ..._list,
-  ..._list,
-  ..._list,
-];
+//   @override
+//   State<PersonsList> createState() => _PersonsListState();
+// }
+
+// class _PersonsListState extends State<PersonsList> {
+//   var isListView = true;
+//   @override
+//   Widget build(BuildContext context) {
+//     return SafeArea(
+//       child: Scaffold(
+//         bottomNavigationBar: const AppNavBar(current: 0),
+//         body: Column(
+//           children: [
+//             const SearchField(),
+//             Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 12.0),
+//               child: Row(
+//                 children: [
+//                   Expanded(
+//                     child: Text(
+//                       S
+//                           .of(context)
+//                           .personsTotal(_personsList.length)
+//                           .toUpperCase(),
+//                       style: AppStyles.s10w500.copyWith(
+//                         letterSpacing: 1.5,
+//                         color: AppColors.neutral2,
+//                       ),
+//                     ),
+//                   ),
+//                   IconButton(
+//                     icon: Icon(isListView ? Icons.list : Icons.grid_view),
+//                     iconSize: 28.0,
+//                     color: AppColors.neutral2,
+//                     onPressed: () {
+//                       setState(() {
+//                         isListView = !isListView;
+//                       });
+//                     },
+//                   ),
+//                 ],
+//               ),
+//             ),
+//             Expanded(
+//               child: isListView
+//                   ? _ListView(personsList: _personsList)
+//                   : _GridView(personsList: _personsList),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// final _list = [
+//   const Person(
+//     name: 'Рик Санчез',
+//     species: 'Человек',
+//     status: 'Alive',
+//     gender: 'Мужской',
+//   ),
+//   const Person(
+//     name: 'Алан Райс',
+//     species: 'Человек',
+//     status: 'Dead',
+//     gender: 'Мужской',
+//   ),
+//   const Person(
+//     name: 'Саммер Смит',
+//     species: 'Человек',
+//     status: 'Alive',
+//     gender: 'Женский',
+//   ),
+//   const Person(
+//     name: 'Морти Смит',
+//     species: 'Человек',
+//     status: 'Alive',
+//     gender: 'Мужской',
+//   ),
+// ];
+
+// final _personsList = [
+//   ..._list,
+//   ..._list,
+//   ..._list,
+//   ..._list,
+// ];

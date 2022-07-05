@@ -46,5 +46,11 @@
 	"wrongLoginOrPassword": "Wrong login or password",
 	"ok": "Ok",
 	"settings": "Settings",
-	"persons": "Persons"
+	
+	"persons": "Persons",
+	"man": "Man",
+	"male": "Male",
+	"female": "Female",
+	"personsListIsEmpty": "No persons found",
+	"somethingWentWrong": "Something went wrong :-("
 }
